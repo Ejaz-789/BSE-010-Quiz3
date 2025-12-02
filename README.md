@@ -1,2 +1,2 @@
-This branch contains a simple Java program and the Jenkinsfile.
-The pipeline compiles and executes Hello.java.
+This branch contains a simple Python program and the Jenkinsfile.
+The pipeline runs hello.py.
