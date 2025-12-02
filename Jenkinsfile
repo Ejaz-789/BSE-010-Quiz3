@@ -8,15 +8,9 @@ pipeline {
             }
         }
 
-        stage('Compile Java') {
+        stage('Run Python Script') {
             steps {
-                sh 'javac Hello.java'
-            }
-        }
-
-        stage('Run Java') {
-            steps {
-                sh 'java Hello'
+                sh 'python3 hello.py'
             }
         }
     }
