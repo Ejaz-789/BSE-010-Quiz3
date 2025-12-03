@@ -13,22 +13,22 @@ pipeline {
         stage('Setup Python Environment') {
             steps {
                 echo 'Setting up Python environment...'
-                bat 'python --version'
-                bat 'pip --version'
+                bat 'D:\\python.exe --version'
+                bat 'D:\\python.exe -m pip --version'
             }
         }
         
         stage('Run Python Program') {
             steps {
                 echo 'Executing Python program...'
-                bat 'python hello.py'  // Make sure this matches your file name
+                bat 'D:\\python.exe hello.py'  // Using D: drive Python
             }
         }
         
         stage('Run Tests') {
             steps {
                 echo 'Running additional checks...'
-                bat 'python -m py_compile hello.py'
+                bat 'D:\\python.exe -m py_compile hello.py'
                 echo 'Python syntax check passed!'
             }
         }
