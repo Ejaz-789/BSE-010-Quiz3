@@ -1,23 +1,43 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                echo 'Checking out code from main branch...'
+                git branch: 'main', 
+                    url: 'https://github.com/Ejaz-789/BSE-010-Quiz3.git'
             }
         }
-
+        
         stage('Compile Java') {
             steps {
-                sh 'javac Hello.java'
+                echo 'Compiling Java program...'
+                bat 'javac HelloWorld.java'
             }
         }
-
+        
         stage('Run Java') {
             steps {
-                sh 'java Hello'
+                echo 'Running Java program...'
+                bat 'java HelloWorld'
             }
+        }
+        
+        stage('Archive Artifacts') {
+            steps {
+                echo 'Archiving generated artifacts...'
+                archiveArtifacts artifacts: '*.class', fingerprint: true
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Pipeline executed successfully for main branch!'
+        }
+        failure {
+            echo 'Pipeline failed for main branch!'
         }
     }
 }
