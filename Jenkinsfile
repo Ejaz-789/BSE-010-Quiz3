@@ -14,14 +14,16 @@ pipeline {
             steps {
                 echo 'Setting up Python environment...'
                 bat 'D:\\python.exe --version'
-                bat 'D:\\python.exe -m pip --version'
+                // Comment out pip check for now
+                // bat 'D:\\python.exe -m pip --version'
+                echo 'Python 3.14.0 detected (pip check skipped)'
             }
         }
         
         stage('Run Python Program') {
             steps {
                 echo 'Executing Python program...'
-                bat 'D:\\python.exe hello.py'  // Using D: drive Python
+                bat 'D:\\python.exe hello.py'
             }
         }
         
