@@ -13,14 +13,14 @@ pipeline {
         stage('Compile Java') {
             steps {
                 echo 'Compiling Java program...'
-                bat 'javac HelloWorld.java'
+                bat 'javac Hello.java'  // Changed to Hello.java
             }
         }
         
         stage('Run Java') {
             steps {
                 echo 'Running Java program...'
-                bat 'java HelloWorld'
+                bat 'java Hello'  // Changed to Hello (no .java extension)
             }
         }
         
